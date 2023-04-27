@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>年会抽奖</title>
+  <style>
+    .wrapper {
+      margin: 0 auto;
+      width: 840px;
+      height: 420px;
+      background: url(./images/bg01.jpg) no-repeat center / cover;
+      padding: 100px 250px;
+      box-sizing: border-box;
+      font-size: 22px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <strong>223年会抽奖</strong>
+    <h1>一等奖：<span id="one">???</span></h1>
+    <h3>二等奖：<span id="two">???</span></h3>
+    <h5>三等奖：<span id="three">???</span></h5>
+  </div>
+  <script>
+    // 1、人员数组
+    const personArr = ['刘秋峰', '陈世伟', '杨干', '吴思铭', '汪俊文', '刘鸿洋']
+    // 2、一等奖
+    // 2-1、获取随机数数组索引
+    
+    function yang(gan) {
+            let random = Math.floor(Math.random() * personArr.length)
+            gan = document.querySelector('#' + gan)
+            gan.innerHTML = personArr[random]
+            personArr.splice(random, 1)
+            return gan
+    }
+    let x = ['one', 'two', 'three']
+    for(let i = 0; i < x.length; i++) {
+      yang(x[i])
+    }
+    console.log(personArr)
+    
+
+    // random = Math.floor(Math.random() * personArr.length)
+    // const two = document.querySelector('#two')
+    // two.innerHTML = personArr[random]
+    // personArr.splice(random, 1)
+
+    // random = Math.floor(Math.random() * personArr.length)
+    // const three = document.querySelector('#three')
+    // three.innerHTML = personArr[random]
+    // personArr.splice(random, 1)
+  </script>
+</body>
+
+</html>
