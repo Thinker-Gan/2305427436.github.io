@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>你好！我是小杨同学</title>
     <style>
+        a {
+            text-decoration: none;
+        }
         body {
-            /* display: flex; */
-            /* justify-content: center; */
-            /* align-items: center; */
-            /* font-size: 30px; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
             height: 100vh;
-            /* color: #fff; */
+            color: #fff;
             background-image: linear-gradient(
                 125deg, #2c3e50, #27ae60, #2980b9, #e74c3c, #8e44ad
             );
@@ -30,48 +33,9 @@
                     Background-position: 0% 50%;
                 }
         }
-        h1,img {
-            position: absolute;
-            left: 30%;
-            top: 40%;
-            font: normal 700 70px windows;
-        }
-
-        h2 {
-            position: absolute;
-            left: 55%;
-            top: 50%;
-            font: normal italic  50px windows;
-        }
-
     </style>
 </head>
 <body>
-    <h1>距离六月份英语四级还有</h1>
-    <h2 id="timer"></h2>
-    <script>
-        var endtimer="2023-06-17 09:00";
-        function clock() {
-            var today = new Date(); //当前时间
-            var stopTime = new Date(endtimer);//结束时间
-            var shenyu = stopTime.getTime() - today.getTime(),
-                shengyuD = parseInt(shenyu / (60 * 60 * 24 * 1000)),
-                D = parseInt(shenyu) - parseInt(shengyuD * 60 * 60 * 24 * 1000),
-                shengyuH = parseInt(D / (60 * 60 * 1000)),
-                H = D - shengyuH * 60 * 60 * 1000,
-                shengyuM = parseInt(H / (60 * 1000)),
-                M = H - shengyuM * 60 * 1000;
-            S = parseInt((shenyu - shengyuD * 60 * 60 * 24 * 1000 - shengyuH * 60 * 60 * 1000 - shengyuM * 60 * 1000) /
-                1000);
-            if (shengyuH > 0 || shengyuM > 0 || S > 0) {
-                setTimeout(clock, 500);
-                document.getElementById("timer").innerText=(shengyuD + "天" + shengyuH + "小时" + shengyuM + "分" + S + "秒" + " ")
-            } else { 
-                // 倒计时结束
-                document.getElementById("timer").innerText=("倒计时结束");
-            }
-        }
-        clock();
-    </script>
+    <h1><a href="index01.html">欢迎来到Thinker-Gan的网页临时部署区</a></h1>
 </body>
 </html>
