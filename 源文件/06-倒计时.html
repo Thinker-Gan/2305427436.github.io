@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .countdown {
+      margin: 0 auto;
+      width: 290px;
+      height: 330px;
+      text-align: center;
+      line-height: 1;
+      color: #fff;
+      background-color: brown;
+      /* background-size: 240px; */
+      /* float: left; */
+      overflow: hidden;
+    }
+
+    .countdown .next {
+      font-size: 16px;
+      margin: 25px 0 14px;
+    }
+
+    .countdown .title {
+      font-size: 33px;
+    }
+
+    .countdown .tips {
+      margin-top: 80px;
+      font-size: 23px;
+    }
+
+    .countdown small {
+      font-size: 17px;
+    }
+
+    .countdown .clock {
+      width: 250px;
+      margin: 18px auto 0;
+      overflow: hidden;
+    }
+
+    .countdown .clock span,
+    .countdown .clock i {
+      display: block;
+      text-align: center;
+      line-height: 34px;
+      font-size: 23px;
+      float: left;
+    }
+
+    .countdown .clock span {
+      width: 42px;
+      height: 34px;
+      border-radius: 2px;
+      background-color: #303430;
+    }
+
+    .countdown .clock i {
+      width: 20px;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="countdown">
+    <p class="next"></p>
+    <p class="title">毕业倒计时</p>
+    <p class="clock">
+      <span id="day"></span>
+      <i>天</i>
+      <span id="hour"></span>
+      <i>时</i>
+      <span id="minutes"></span>
+      <i>分</i>
+      <span id="scond"></span>
+      <i>秒</i>
+    </p>
+    <p class="tips">2025年6月30日</p>
+  </div>
+  <script>
+    // 随机颜色函数
+    // 1. 自定义一个随机颜色函数
+    function getRandomColor(flag = true) {
+      if (flag) {
+        // 3. 如果是true 则返回 #ffffff
+        let str = '#'
+        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+        // 利用for循环随机抽6次 累加到 str里面
+        for (let i = 1; i <= 6; i++) {
+          // 每次要随机从数组里面抽取一个  
+          // random 是数组的索引号 是随机的
+          let random = Math.floor(Math.random() * arr.length)
+          // str = str + arr[random]
+          str += arr[random]
+        }
+        return str
+
+      } else {
+        // 4. 否则是 false 则返回 rgb(255,255,255)
+        let r = Math.floor(Math.random() * 256)  // 55
+        let g = Math.floor(Math.random() * 256)  // 89
+        let b = Math.floor(Math.random() * 256)  // 255
+        return `rgb(${r},${g},${b})`
+      }
+
+    }
+
+    // 页面刷新随机得到颜色
+    const countdown = document.querySelector('.countdown')
+    countdown.style.backgroundColor = getRandomColor()
+
+
+    // 获取当前时间
+    function getNowtime() {
+      const date = new Date()
+      // let h = date.getHours()
+      // let m = date.getMinutes()
+      // let s = date.getSeconds()
+      // h = h < 10 ? '0' + h : h
+      // m = m < 10 ? '0' + m : m
+      // s = s < 10 ? '0' + s : s
+      return `今天是：${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`
+    }
+    const next = document.querySelector('.next').innerHTML = getNowtime()
+
+
+
+    // 倒计时
+    function getMyTime() {
+      // 1、得到当前的时间戳
+      const now = +new Date()
+      // 2、得到将来的时间戳    （毕业）
+      const last = +new Date('2025-6-30 05:20:00')
+      // console.log(now,last);
+      // 3、剩余的时间戳 count  记得转换为秒
+      let count = (last - now) / 1000
+      // console.log(count)
+      let d = parseInt(count / 60 / 60 / 24)   // 计算天数
+      let h = parseInt(count / 60 / 60 % 24)   // 计算小时
+      h = h < 10 ? '0' + h : h
+      let m = parseInt(count / 60 % 60)   // 计算分钟
+      m = m < 10 ? '0' + m : m
+      let s = parseInt(count % 60)   // 计算秒数
+      s = s < 10 ? '0' + s : s
+      // console.log(d, h, m, s);
+      document.querySelector('#day').innerHTML = d
+      document.querySelector('#hour').innerHTML = h
+      document.querySelector('#minutes').innerHTML = m
+      document.querySelector('#scond').innerHTML = s
+    }
+
+    getMyTime()
+
+
+    setInterval(getMyTime, 1000)
+
+
+  </script>
+</body>
+
+</html>
