@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,39 +10,56 @@
         a {
             text-decoration: none;
         }
+
         body {
-            display: flex;
+            /* display: flex; */
             justify-content: center;
             align-items: center;
             font-size: 30px;
             height: 100vh;
             color: #fff;
-            background-image: linear-gradient(
-                125deg, #2c3e50, #27ae60, #2980b9, #e74c3c, #8e44ad
-            );
+            background-image: linear-gradient(125deg, #2c3e50, #27ae60, #2980b9, #e74c3c, #8e44ad);
             background-size: 400%;
             animation: bgmove 20s infinite;
+        }
+
+        @keyframes bgmove {
+            0% {
+                Background-position: 0% 50%;
             }
-            @keyframes bgmove {
-                0%{
-                    Background-position: 0% 50%;
-                }
-                50%{
-                    Background-position: 100% 50%;
-                }
-                100%{
-                    Background-position: 0% 50%;
-                }
+
+            50% {
+                Background-position: 100% 50%;
+            }
+
+            100% {
+                Background-position: 0% 50%;
+            }
+        }
+
+        h1 {
+            text-align: center; /* 将文本水平居中 */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            clear: both;
+        
+        }
+
+        li {
+            margin: 10px 0;
         }
     </style>
 </head>
+
 <body>
     <h1><a href="../源文件/index01.html">欢迎来到Thinker-Gan的网页临时部署区</a></h1>
-    <br>
-    <div><a href="../源文件/04-随机点名案例.html">点名</a></div>
-    <br>
-    <div><a href="../源文件/轮播图.html">轮播图</a></div>
-    <br>
-    <div><a href="../源文件/06-倒计时.html">倒计时</a></div>
+    <ul>
+        <li><a href="../源文件/04-随机点名案例.html">点名</a></li>
+        <li><a href="../源文件/轮播图.html">轮播图</a></li>
+        <li><a href="../源文件/06-倒计时.html">倒计时</a></li>
+    </ul>
 </body>
+
 </html>
